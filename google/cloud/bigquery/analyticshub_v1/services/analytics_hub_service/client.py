@@ -16,7 +16,18 @@
 from collections import OrderedDict
 import os
 import re
-from typing import Dict, Mapping, Optional, Sequence, Tuple, Type, Union, cast
+from typing import (
+    Dict,
+    Mapping,
+    MutableMapping,
+    MutableSequence,
+    Optional,
+    Sequence,
+    Tuple,
+    Type,
+    Union,
+    cast,
+)
 
 from google.api_core import client_options as client_options_lib
 from google.api_core import exceptions as core_exceptions
@@ -62,7 +73,7 @@ class AnalyticsHubServiceClientMeta(type):
 
     def get_transport_class(
         cls,
-        label: str = None,
+        label: Optional[str] = None,
     ) -> Type[AnalyticsHubServiceTransport]:
         """Returns an appropriate transport class.
 
@@ -385,7 +396,7 @@ class AnalyticsHubServiceClient(metaclass=AnalyticsHubServiceClientMeta):
         self,
         *,
         credentials: Optional[ga_credentials.Credentials] = None,
-        transport: Union[str, AnalyticsHubServiceTransport, None] = None,
+        transport: Optional[Union[str, AnalyticsHubServiceTransport]] = None,
         client_options: Optional[Union[client_options_lib.ClientOptions, dict]] = None,
         client_info: gapic_v1.client_info.ClientInfo = DEFAULT_CLIENT_INFO,
     ) -> None:
@@ -483,11 +494,11 @@ class AnalyticsHubServiceClient(metaclass=AnalyticsHubServiceClientMeta):
 
     def list_data_exchanges(
         self,
-        request: Union[analyticshub.ListDataExchangesRequest, dict] = None,
+        request: Optional[Union[analyticshub.ListDataExchangesRequest, dict]] = None,
         *,
-        parent: str = None,
+        parent: Optional[str] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> pagers.ListDataExchangesPager:
         r"""Lists all data exchanges in a given project and
@@ -599,11 +610,11 @@ class AnalyticsHubServiceClient(metaclass=AnalyticsHubServiceClientMeta):
 
     def list_org_data_exchanges(
         self,
-        request: Union[analyticshub.ListOrgDataExchangesRequest, dict] = None,
+        request: Optional[Union[analyticshub.ListOrgDataExchangesRequest, dict]] = None,
         *,
-        organization: str = None,
+        organization: Optional[str] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> pagers.ListOrgDataExchangesPager:
         r"""Lists all data exchanges from projects in a given
@@ -720,11 +731,11 @@ class AnalyticsHubServiceClient(metaclass=AnalyticsHubServiceClientMeta):
 
     def get_data_exchange(
         self,
-        request: Union[analyticshub.GetDataExchangeRequest, dict] = None,
+        request: Optional[Union[analyticshub.GetDataExchangeRequest, dict]] = None,
         *,
-        name: str = None,
+        name: Optional[str] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> analyticshub.DataExchange:
         r"""Gets the details of a data exchange.
@@ -824,12 +835,12 @@ class AnalyticsHubServiceClient(metaclass=AnalyticsHubServiceClientMeta):
 
     def create_data_exchange(
         self,
-        request: Union[analyticshub.CreateDataExchangeRequest, dict] = None,
+        request: Optional[Union[analyticshub.CreateDataExchangeRequest, dict]] = None,
         *,
-        parent: str = None,
-        data_exchange: analyticshub.DataExchange = None,
+        parent: Optional[str] = None,
+        data_exchange: Optional[analyticshub.DataExchange] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> analyticshub.DataExchange:
         r"""Creates a new data exchange.
@@ -944,12 +955,12 @@ class AnalyticsHubServiceClient(metaclass=AnalyticsHubServiceClientMeta):
 
     def update_data_exchange(
         self,
-        request: Union[analyticshub.UpdateDataExchangeRequest, dict] = None,
+        request: Optional[Union[analyticshub.UpdateDataExchangeRequest, dict]] = None,
         *,
-        data_exchange: analyticshub.DataExchange = None,
-        update_mask: field_mask_pb2.FieldMask = None,
+        data_exchange: Optional[analyticshub.DataExchange] = None,
+        update_mask: Optional[field_mask_pb2.FieldMask] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> analyticshub.DataExchange:
         r"""Updates an existing data exchange.
@@ -1066,11 +1077,11 @@ class AnalyticsHubServiceClient(metaclass=AnalyticsHubServiceClientMeta):
 
     def delete_data_exchange(
         self,
-        request: Union[analyticshub.DeleteDataExchangeRequest, dict] = None,
+        request: Optional[Union[analyticshub.DeleteDataExchangeRequest, dict]] = None,
         *,
-        name: str = None,
+        name: Optional[str] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> None:
         r"""Deletes an existing data exchange.
@@ -1157,11 +1168,11 @@ class AnalyticsHubServiceClient(metaclass=AnalyticsHubServiceClientMeta):
 
     def list_listings(
         self,
-        request: Union[analyticshub.ListListingsRequest, dict] = None,
+        request: Optional[Union[analyticshub.ListListingsRequest, dict]] = None,
         *,
-        parent: str = None,
+        parent: Optional[str] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> pagers.ListListingsPager:
         r"""Lists all listings in a given project and location.
@@ -1272,11 +1283,11 @@ class AnalyticsHubServiceClient(metaclass=AnalyticsHubServiceClientMeta):
 
     def get_listing(
         self,
-        request: Union[analyticshub.GetListingRequest, dict] = None,
+        request: Optional[Union[analyticshub.GetListingRequest, dict]] = None,
         *,
-        name: str = None,
+        name: Optional[str] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> analyticshub.Listing:
         r"""Gets the details of a listing.
@@ -1377,12 +1388,12 @@ class AnalyticsHubServiceClient(metaclass=AnalyticsHubServiceClientMeta):
 
     def create_listing(
         self,
-        request: Union[analyticshub.CreateListingRequest, dict] = None,
+        request: Optional[Union[analyticshub.CreateListingRequest, dict]] = None,
         *,
-        parent: str = None,
-        listing: analyticshub.Listing = None,
+        parent: Optional[str] = None,
+        listing: Optional[analyticshub.Listing] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> analyticshub.Listing:
         r"""Creates a new listing.
@@ -1495,12 +1506,12 @@ class AnalyticsHubServiceClient(metaclass=AnalyticsHubServiceClientMeta):
 
     def update_listing(
         self,
-        request: Union[analyticshub.UpdateListingRequest, dict] = None,
+        request: Optional[Union[analyticshub.UpdateListingRequest, dict]] = None,
         *,
-        listing: analyticshub.Listing = None,
-        update_mask: field_mask_pb2.FieldMask = None,
+        listing: Optional[analyticshub.Listing] = None,
+        update_mask: Optional[field_mask_pb2.FieldMask] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> analyticshub.Listing:
         r"""Updates an existing listing.
@@ -1615,11 +1626,11 @@ class AnalyticsHubServiceClient(metaclass=AnalyticsHubServiceClientMeta):
 
     def delete_listing(
         self,
-        request: Union[analyticshub.DeleteListingRequest, dict] = None,
+        request: Optional[Union[analyticshub.DeleteListingRequest, dict]] = None,
         *,
-        name: str = None,
+        name: Optional[str] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> None:
         r"""Deletes a listing.
@@ -1704,11 +1715,11 @@ class AnalyticsHubServiceClient(metaclass=AnalyticsHubServiceClientMeta):
 
     def subscribe_listing(
         self,
-        request: Union[analyticshub.SubscribeListingRequest, dict] = None,
+        request: Optional[Union[analyticshub.SubscribeListingRequest, dict]] = None,
         *,
-        name: str = None,
+        name: Optional[str] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> analyticshub.SubscribeListingResponse:
         r"""Subscribes to a listing.
@@ -1818,10 +1829,10 @@ class AnalyticsHubServiceClient(metaclass=AnalyticsHubServiceClientMeta):
 
     def get_iam_policy(
         self,
-        request: Union[iam_policy_pb2.GetIamPolicyRequest, dict] = None,
+        request: Optional[Union[iam_policy_pb2.GetIamPolicyRequest, dict]] = None,
         *,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> policy_pb2.Policy:
         r"""Gets the IAM policy.
@@ -1960,10 +1971,10 @@ class AnalyticsHubServiceClient(metaclass=AnalyticsHubServiceClientMeta):
 
     def set_iam_policy(
         self,
-        request: Union[iam_policy_pb2.SetIamPolicyRequest, dict] = None,
+        request: Optional[Union[iam_policy_pb2.SetIamPolicyRequest, dict]] = None,
         *,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> policy_pb2.Policy:
         r"""Sets the IAM policy.
@@ -2102,10 +2113,10 @@ class AnalyticsHubServiceClient(metaclass=AnalyticsHubServiceClientMeta):
 
     def test_iam_permissions(
         self,
-        request: Union[iam_policy_pb2.TestIamPermissionsRequest, dict] = None,
+        request: Optional[Union[iam_policy_pb2.TestIamPermissionsRequest, dict]] = None,
         *,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> iam_policy_pb2.TestIamPermissionsResponse:
         r"""Returns the permissions that a caller has.
