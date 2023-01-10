@@ -1,2 +1,0 @@
-recursive-include google/cloud/bigquery/analyticshub *.py
-recursive-include google/cloud/bigquery/analyticshub_v1 *.py
